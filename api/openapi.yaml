@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: Marko Foorum API
+  description: Foorum.
+  version: 1.0.0
+servers:
+- url: http://localhost:8080
+paths:
+  /cars:
+    post:
+      summary: Adds new car post.
+      operationId: carsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Car'
+        required: true
+      responses:
+        "200":
+          description: Post success
+        "405":
+          description: Invalid input
+      x-swagger-router-controller: Car
+  /car:
+    get:
+      summary: Get car post.
+      operationId: carGET
+      responses:
+        "200":
+          description: Get car post object.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Car'
+                x-content-type: application/json
+      x-swagger-router-controller: Car
+components:
+  schemas:
+    Car:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
+      example:
+        id: abcd
+        title: title
+        content: content
