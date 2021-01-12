@@ -8,7 +8,7 @@ var serverPort = 8080;
 
 var admin = require("firebase-admin");
 
-var serviceAccount = require("./private-config/distappta18-firebase-adminsdk-gc9do-7194e134e3.json");
+var serviceAccount = require("./private-config/firebase-admin.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
